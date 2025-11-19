@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <h1>Patchwork: A compact representation for 3D polygonal shapes</h1>
+      <p>Anonymous Authors</p>
+      <div class="teaser">
+        <img src="./images/teaser.jpg" width="100%" height="100%" />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+      <h1 class="mid">Abstract</h1>
+      <div class="abstract">
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+          We introduce Patchwork, a new general-purpose shape representation
+          capable of modeling 2D and 3D geometry with a very small number of
+          parameters. Patchwork is grounded in a rigorous mathematical
+          framework, providing provable complexity bounds and the ability to
+          approximate arbitrary shapes with arbitrary precision in any
+          dimension. We propose an efficient gradient-based optimization scheme
+          to fit Patchwork representations to 2D and 3D data, along with a novel
+          regularization loss that progressively prunes redundant elements,
+          yielding near-optimal compactness after convergence. Our approach
+          offers fast fitting performance, a smaller number of required
+          parameters compared to existing alternatives, and native support for
+          inside-outside classification. With a small additional computational
+          cost, Patchwork can also approximate signed distance fields, making it
+          a versatile and compact representation for geometric learning and
+          reconstruction tasks, and with future potential for 3D generation.
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1 class="mid">Results</h1>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
