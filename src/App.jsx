@@ -1,16 +1,18 @@
-import { useState } from "react";
 import "./App.css";
+import SplitViewer from "./components/SplitViewer";
+import FullscreenCanvas from "./components/FullscreenCanvas";
 
 function App() {
   return (
     <>
+      <FullscreenCanvas />
       <h1>Patchwork: A compact representation for 3D polygonal shapes</h1>
       <p>Anonymous Authors</p>
-      <div class="teaser">
+      <div className="teaser">
         <img src="./images/teaser.jpg" width="100%" height="100%" />
       </div>
-      <h1 class="mid">Abstract</h1>
-      <div class="abstract">
+      <h1 className="mid">Abstract</h1>
+      <div className="abstract">
         <p>
           We introduce Patchwork, a new general-purpose shape representation
           capable of modeling 2D and 3D geometry with a very small number of
@@ -29,7 +31,10 @@ function App() {
           reconstruction tasks, and with future potential for 3D generation.
         </p>
       </div>
-      <h1 class="mid">Results</h1>
+      <h1 className="mid">Results</h1>
+      <p>Roof Modeling</p>
+      <SplitViewer />
+      <p>ABC and Thingi10k</p>
     </>
   );
 }
