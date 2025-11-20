@@ -55,7 +55,7 @@ function App() {
       <h1>Patchwork: A compact representation for 3D polygonal shapes</h1>
       <p>Anonymous Authors</p>
       <div className="teaser">
-        <img src="./images/teaser.jpg" width="100%" height="100%" />
+        <img src="./images/teaser.png" width="100%" height="100%" />
       </div>
       <h1 className="mid">Abstract</h1>
       <div className="abstract">

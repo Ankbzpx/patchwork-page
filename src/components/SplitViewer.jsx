@@ -59,7 +59,10 @@ function ModelView({ tag, category, modelName, hdrFile, rotation }) {
           modelName={modelName}
           rotation={rotation}
         />
-        <Environment files={hdrFile} environmentRotation={[0, Math.PI, 0]} />
+        <Environment
+          files={hdrFile}
+          environmentRotation={[0, -Math.PI / 2, 0]}
+        />
         <OrbitControls />
       </View>
       <p>{tagMap[tag]}</p>
