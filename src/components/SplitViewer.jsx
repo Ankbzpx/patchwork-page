@@ -27,7 +27,7 @@ const tagMap = {
   gt: "GT",
 };
 
-function GLTFModel({ tag, category, modelName }) {
+function GLTFModel({ tag, category, modelName, rotation }) {
   const gltf = useGLTF(`./meshes/${tag}/${category}/${modelName}.glb`, true);
 
   useEffect(() => {
@@ -40,17 +40,26 @@ function GLTFModel({ tag, category, modelName }) {
 
   return (
     <>
-      <primitive object={gltf.scene} />
+      <primitive
+        object={gltf.scene}
+        rotation={rotation}
+        scale={[2.0, 2.0, 2.0]}
+      />
     </>
   );
 }
 
-function ModelView({ tag, category, modelName, hdrFile }) {
+function ModelView({ tag, category, modelName, hdrFile, rotation }) {
   return (
     <div style={{ position: "relative", width: 150, height: 225 }}>
       <View style={{ width: 150, height: 200 }}>
-        <GLTFModel tag={tag} category={category} modelName={modelName} />
-        <Environment files={hdrFile} />
+        <GLTFModel
+          tag={tag}
+          category={category}
+          modelName={modelName}
+          rotation={rotation}
+        />
+        <Environment files={hdrFile} environmentRotation={[0, Math.PI, 0]} />
         <OrbitControls />
       </View>
       <p>{tagMap[tag]}</p>
@@ -58,7 +67,7 @@ function ModelView({ tag, category, modelName, hdrFile }) {
   );
 }
 
-export default function SplitViewer({ modelName, category }) {
+export default function SplitViewer({ modelName, category, rotation }) {
   const hdrFile = "./images/qwantani_moon_noon_puresky_1k.hdr";
   return (
     <div>
@@ -69,6 +78,7 @@ export default function SplitViewer({ modelName, category }) {
             category={category}
             modelName={modelName}
             hdrFile={hdrFile}
+            rotation={rotation}
           />
         ))}
       </Stack>

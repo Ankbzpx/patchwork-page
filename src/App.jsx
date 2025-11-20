@@ -51,6 +51,7 @@ function App() {
 
   return (
     <>
+      <FullscreenCanvas />
       <h1>Patchwork: A compact representation for 3D polygonal shapes</h1>
       <p>Anonymous Authors</p>
       <div className="teaser">
@@ -76,7 +77,6 @@ function App() {
           reconstruction tasks, and with future potential for 3D generation.
         </p>
       </div>
-      <FullscreenCanvas />
       <span style={{ height: "50px", display: "inline-block" }}></span>
       <h1 className="mid">Results</h1>
       <p style={{ textAlign: "left" }}>Roof Modeling</p>
@@ -119,7 +119,11 @@ function App() {
           </Select>
         </FormControl>
       </Box>
-      <SplitViewer modelName={generalItem} category={"general"} />
+      <SplitViewer
+        modelName={generalItem}
+        category={"general"}
+        rotation={[-Math.PI / 2, 0, 0]}
+      />
     </>
   );
 }
