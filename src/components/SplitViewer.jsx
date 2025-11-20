@@ -27,13 +27,12 @@ const tagMap = {
   gt: "GT",
 };
 
-function GLTFModel({ tag, modelName }) {
-  const gltf = useGLTF(`./meshes/${tag}/general/${modelName}.glb`, true);
+function GLTFModel({ tag, category, modelName }) {
+  const gltf = useGLTF(`./meshes/${tag}/${category}/${modelName}.glb`, true);
 
   useEffect(() => {
     gltf.scene.traverse((child) => {
       if (child.isMesh) {
-        console.log(child.material);
         child.material.color = new THREE.Color().setRGB(0.184, 0.412, 0.592);
       }
     });
@@ -46,11 +45,11 @@ function GLTFModel({ tag, modelName }) {
   );
 }
 
-function ModelView({ tag, modelName, hdrFile }) {
+function ModelView({ tag, category, modelName, hdrFile }) {
   return (
     <div style={{ position: "relative", width: 150, height: 225 }}>
       <View style={{ width: 150, height: 200 }}>
-        <GLTFModel tag={tag} modelName={modelName} />
+        <GLTFModel tag={tag} category={category} modelName={modelName} />
         <Environment files={hdrFile} />
         <OrbitControls />
       </View>
@@ -59,7 +58,7 @@ function ModelView({ tag, modelName, hdrFile }) {
   );
 }
 
-export default function SplitViewer() {
+export default function SplitViewer({ modelName, category }) {
   const hdrFile = "./images/qwantani_moon_noon_puresky_1k.hdr";
   return (
     <div>
@@ -67,7 +66,8 @@ export default function SplitViewer() {
         {tags.map((tag) => (
           <ModelView
             tag={tag}
-            modelName={"00011602_c087f04c99464bf7ab2380c4"}
+            category={category}
+            modelName={modelName}
             hdrFile={hdrFile}
           />
         ))}

@@ -1,7 +1,7 @@
 import { View, PerspectiveCamera } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 
-export default function SplitViewer() {
+export default function SplitViewer({children}) {
   return (
     // **IMPORTANT** Render with fullscreen canvas then GLScissor
     <Canvas
@@ -17,6 +17,7 @@ export default function SplitViewer() {
       }}
     >
       <View.Port />
+      {children}
       // TODO: Maybe I should fix the camera here?
       {/* <PerspectiveCamera makeDefault position={[0, 0, 4]} fov={45} /> */}
     </Canvas>
