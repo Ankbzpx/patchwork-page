@@ -12,12 +12,21 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "@fortawesome/free-solid-svg-icons": "^7.2.0",
+    "@fortawesome/react-fontawesome": "^3.2.0",
     "@mui/material": "^7.3.5",
+    "@pixi/react": "^8.0.5",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.4.0",
     "@types/three": "^0.181.0",
+    "immer": "^11.1.4",
+    "katex": "^0.16.38",
+    "konva": "^10.2.3",
+    "pixi.js": "^8.17.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-katex": "^3.1.0",
+    "react-konva": "^19.2.3",
     "three": "^0.181.2"
   },
   "devDependencies": {

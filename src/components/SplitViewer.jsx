@@ -23,62 +23,98 @@ import dracoDecoder from "three/examples/jsm/libs/draco/draco_decoder.js?url";
 import models from "./models";
 
 const floatsCount = {
-  BK39_500_012028_0009: 135,
-  BK39_500_012032_0054: 90,
-  BK39_500_014026_0009: 155,
-  BK39_500_015031_0034: 135,
-  CG10_500_048076_0052: 145,
-  CG10_500_048073_0008: 95,
-  CG10_500_048067_0009: 110,
-  CG10_500_048063_0002: 120,
-  CG10_500_045072_0039: 145,
-  CG10_500_044069_0003: 80,
-  CG10_500_044065_0005: 120,
-  CG10_500_043073_0009: 120,
-  CG10_500_043069_0057: 130,
-  CG10_500_039072_0020: 100,
-  CG10_500_040066_0034: 95,
-  "00011602_c087f04c99464bf7ab2380c4": 1900,
-  "00014489_f4297f01e3434034b7051ebb": 3605,
-  "00017682_f0ea0b827ae34675a4162390": 4675,
-  "00018330_ae93a6d282364256a7bb3358": 2895,
-  "00019935_1935a08cf21c47e1ab92af60": 1890,
-  "00992087_adbf0b351ea40b651859747a": 3610,
-  "00993632_eb58d1abb0fc233d8b912460": 3670,
-  73133: 3345,
-  93497: 4010,
-  44234: 3345,
-  46459: 4170,
-  46461: 4040,
-  53159: 3115,
-  398259: 3235,
-  316358: 3035,
+  CG10_500_049069_0046: 956,
+  CG10_500_048075_0011: 700,
+  CG10_500_048073_0034: 692,
+  CG10_500_048067_0009: 1104,
+  CG10_500_045072_0039: 932,
+  CG10_500_045068_0041: 988,
+  CG10_500_045065_0012: 760,
+  CG10_500_044065_0005: 880,
+  CG10_500_043069_0057: 960,
+  CG10_500_042073_0025: 832,
+  CG10_500_042071_0037: 824,
+  CG10_500_042065_0033: 920,
+  CG10_500_042060_0021: 1080,
+  CG10_500_041069_0004: 1040,
+  CG10_500_041067_0015: 1032,
+  CG10_500_040075_0008: 1012,
+  CG10_500_040072_0039: 748,
+  CG10_500_040066_0034: 876,
+  CG10_500_038069_0028: 872,
+  CG10_500_038065_0001: 992,
+  "00994034_9299b4c10539bb6b50b162d7": 7384,
+  "00993706_f8bc5c196ab9685d0182bbed": 4440,
+  "00993520_252f32a9edf1094f9b436c94": 7180,
+  "00992294_c5390f6bb4e80a940dae7c15": 2944,
+  "00992087_adbf0b351ea40b651859747a": 6908,
+  "00991916_78dc1680035fad414f8faec4": 6500,
+  "00991357_6cc4a08efbae6c2c09cff23e": 3964,
+  "00019203_1bcd132f82c84761b4e9851d": 6388,
+  "00018330_ae93a6d282364256a7bb3358": 2640,
+  "00017014_fbef9df8f24940a0a2df6ccb": 6080,
+  "00015685_bca56983eee140db9aa4c9a1": 4580,
+  "00014489_f4297f01e3434034b7051ebb": 6068,
+  "00014221_57e4213b31844b5b95cc62cd": 5948,
+  "00011827_73c6505f827541168d5410e4": 3996,
+  "00010218_4769314c71814669ba5d3512": 5748,
+  44234: 7228,
+  46461: 8140,
+  47984: 6240,
+  54725: 8564,
+  59941: 8928,
+  64444: 7308,
+  72879: 8560,
+  73133: 7056,
+  75658: 8684,
+  75810: 5820,
+  88053: 5392,
+  93497: 6732,
+  274379: 7728,
+  316358: 8112,
+  527631: 8968,
 };
 
 const floatsCount2 = {
-  mc: 343,
-  rtfa: 343,
-  spsr: 360,
-  nksr: 360,
-  siren: 353,
+  mc: 8000,
+  rtfa: 8000,
+  spsr: 8806,
+  voromesh: 8000,
+  ponq: 8800,
+  siren: 8641,
+  ours_init: 8192,
 };
 
 const floatsCount3 = {
-  mc: 4096,
-  rtfa: 4096,
-  spsr: 4500,
-  nksr: 4500,
-  siren: 4481,
+  mc: 125000,
+  rtfa: 125000,
+  spsr: 150975,
+  voromesh: 125000,
+  ponq: 132000,
+  siren: 132865,
+  ours_init: 131072,
 };
 
-const tags = ["mc", "rtfa", "spsr", "nksr", "siren", "ours", "gt"];
+const tags = [
+  "mc",
+  "rtfa",
+  "spsr",
+  "voromesh",
+  "ponq",
+  "siren",
+  "ours_init",
+  "ours",
+  "gt",
+];
 
 const tagMap = {
-  mc: "Grid (MC)",
-  rtfa: "Grid (RTFA)",
-  spsr: "PC (SPSR)",
-  nksr: "PC (NKSR)",
+  mc: "MC",
+  rtfa: "RTFA",
+  spsr: "SPSR",
+  voromesh: "VoroMesh",
+  ponq: "PoNQ",
   siren: "Siren",
+  ours_init: "Ours init",
   ours: "Ours",
   gt: "GT",
 };
@@ -106,7 +142,7 @@ function GLTFModel({ tag, category, modelName, rotation }) {
       dracoLoader.setDecoderPath("dummy/"); // Path is ignored by manager
       dracoLoader.setDecoderConfig({ type: "js" });
       loader.setDRACOLoader(dracoLoader);
-    }
+    },
   );
 
   useEffect(() => {
@@ -152,8 +188,8 @@ function ModelView({ tag, category, modelName, rotation }) {
           {tag == "ours"
             ? floatsCount[modelName]
             : category == "roof"
-            ? floatsCount2[tag]
-            : floatsCount3[tag]}{" "}
+              ? floatsCount2[tag]
+              : floatsCount3[tag]}{" "}
           FPs
         </p>
       )}
