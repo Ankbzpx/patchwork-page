@@ -90,7 +90,7 @@ function App() {
       King Abdullah University of Science and Technology
       <div class="vspacer">
         <span class="link-block">
-          <a>
+          <a href="https://github.com/Ankbzpx/patchwork-experiment/blob/main/preprint/preprint.pdf">
             <FontAwesomeIcon icon={faFilePdf} />
             <span>Preprint</span>
           </a>
