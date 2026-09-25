@@ -10,6 +10,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Stack from "@mui/material/Stack";
+import Magnifier from "react-magnifier";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilePdf, faFileCode } from "@fortawesome/free-solid-svg-icons";
@@ -106,11 +107,9 @@ function App() {
           src="./images/teaser.jpg"
           sx={{ height: "600px", width: "auto", display: "block" }}
         />
-        <Box
-          component="img"
-          src="./images/normal.jpg"
-          sx={{ height: "600px", width: "auto", display: "block" }}
-        />
+        <Box sx={{ height: "600px", width: "auto", display: "block" }}>
+          <Magnifier src={"./images/normal.jpg"} zoomImgSrc={"./images/color.jpg"} zoomFactor = {2} height={"600px"} />
+        </Box>
       </Stack>
       <span style={{ height: "50px", display: "inline-block" }}></span>
       <h1 className="mid">Visualizer</h1>
