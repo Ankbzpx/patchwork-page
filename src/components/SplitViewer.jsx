@@ -23,85 +23,89 @@ import dracoDecoder from "three/examples/jsm/libs/draco/draco_decoder.js?url";
 import models from "./models";
 
 const floatsCount = {
-  CG10_500_049069_0046: 956,
-  CG10_500_048075_0011: 700,
-  CG10_500_048073_0034: 692,
-  CG10_500_048067_0009: 1104,
-  CG10_500_045072_0039: 932,
-  CG10_500_045068_0041: 988,
-  CG10_500_045065_0012: 760,
-  CG10_500_044065_0005: 880,
-  CG10_500_043069_0057: 960,
-  CG10_500_042073_0025: 832,
-  CG10_500_042071_0037: 824,
-  CG10_500_042065_0033: 920,
-  CG10_500_042060_0021: 1080,
-  CG10_500_041069_0004: 1040,
-  CG10_500_041067_0015: 1032,
-  CG10_500_040075_0008: 1012,
-  CG10_500_040072_0039: 748,
-  CG10_500_040066_0034: 876,
-  CG10_500_038069_0028: 872,
-  CG10_500_038065_0001: 992,
-  "00994034_9299b4c10539bb6b50b162d7": 7384,
-  "00993706_f8bc5c196ab9685d0182bbed": 4440,
-  "00993520_252f32a9edf1094f9b436c94": 7180,
-  "00992294_c5390f6bb4e80a940dae7c15": 2944,
-  "00992087_adbf0b351ea40b651859747a": 6908,
-  "00991916_78dc1680035fad414f8faec4": 6500,
-  "00991357_6cc4a08efbae6c2c09cff23e": 3964,
-  "00019203_1bcd132f82c84761b4e9851d": 6388,
-  "00018330_ae93a6d282364256a7bb3358": 2640,
-  "00017014_fbef9df8f24940a0a2df6ccb": 6080,
-  "00015685_bca56983eee140db9aa4c9a1": 4580,
-  "00014489_f4297f01e3434034b7051ebb": 6068,
-  "00014221_57e4213b31844b5b95cc62cd": 5948,
-  "00011827_73c6505f827541168d5410e4": 3996,
-  "00010218_4769314c71814669ba5d3512": 5748,
-  44234: 7228,
-  46461: 8140,
-  47984: 6240,
-  54725: 8564,
-  59941: 8928,
-  64444: 7308,
-  72879: 8560,
-  73133: 7056,
-  75658: 8684,
-  75810: 5820,
-  88053: 5392,
-  93497: 6732,
-  274379: 7728,
-  316358: 8112,
-  527631: 8968,
+  BJ39_500_099049_0005: 2244,
+  BK39_500_014026_0009: 2256,
+  BK39_500_014030_0013: 2156,
+  CG10_500_035060_0007: 2380,
+  CG10_500_037056_0018: 2296,
+  CG10_500_040066_0028: 1840,
+  CG10_500_041067_0015: 2184,
+  CG10_500_044065_0005: 2160,
+  CG10_500_049074_0064: 1848,
+  CG10_500_049069_0046: 2144,
+  "00010218_4769314c71814669ba5d3512": 31984,
+  "00011563_26a622427a024bf3af381ee6": 25676,
+  "00014221_57e4213b31844b5b95cc62cd": 37504,
+  "00015685_bca56983eee140db9aa4c9a1": 32684,
+  "00017682_f0ea0b827ae34675a4162390": 52532,
+  "00019152_71752f2bc5bc4c6388aece57": 41712,
+  "00016606_3d6966cd42eb44ab8f4224f2": 32760,
+  "00017012_cd8dbafbc2a3422eb55090d7": 23752,
+  "00993706_f8bc5c196ab9685d0182bbed": 24432,
+  "00993722_a1f027f5424cd7a5f7bcf3a9": 44988,
+  398259: 76756,
+  316358: 62136,
+  274379: 58012,
+  86848: 64580,
+  83229: 47620,
+  77245: 64428,
+  75496: 55348,
+  72879: 63692,
+  54725: 73748,
+  53159: 58664,
+  d23eecb0437107756c63b8b48495261a: 98800,
+  c930760585e923cbdeee898eeed8aea9: 99956,
+  d1aed86c38d9ea6761462fc0fa9b0bb4: 73160,
+  d284b73d5983b60f51f77a6d7299806: 141380,
+  d1948365bbed9de270bb6bcb670ecdf5: 106784,
+  d16bb6b2f26084556acbef8d3bef8f28: 115900,
+  cddbf3a55a623e423002761e7a3ba3bd: 96132,
+  d04816fe3c531b66f647317afa6ffdd4: 129676,
+  cfffdac8ecda7575de208b4547dba0e: 87904,
+  ceaacadde93c2be6ee138bcc5a7d5853: 95792,
 };
 
-const floatsCount2 = {
+const floatsCountRoof = {
   mc: 8000,
   rtfa: 8000,
-  spsr: 8806,
-  voromesh: 8000,
-  ponq: 8800,
+  spsr: 8190,
+  ponq: 8192,
+  igr: 8641,
   siren: 8641,
+  voromesh: 8232,
   ours_init: 8192,
 };
 
-const floatsCount3 = {
-  mc: 125000,
-  rtfa: 125000,
-  spsr: 150975,
-  voromesh: 125000,
-  ponq: 132000,
+const floatsCountGeneral = {
+  mc: 132651,
+  rtfa: 132651,
+  spsr: 131070,
+  ponq: 131072,
+  igr: 132094,
   siren: 132865,
+  voromesh: 128625,
   ours_init: 131072,
+};
+
+const floatsCountShapenet = {
+  mc: 531441,
+  rtfa: 531441,
+  spsr: 524286,
+  ponq: 524288,
+  igr: 526334,
+  siren: 527873,
+  voromesh: 526848,
+  ours_init: 524288,
 };
 
 const tags = [
   "mc",
   "rtfa",
   "spsr",
-  "voromesh",
   "ponq",
+  "igr",
   "siren",
+  "voromesh",
   "ours_init",
   "ours",
   "gt",
@@ -111,9 +115,10 @@ const tagMap = {
   mc: "MC",
   rtfa: "RTFA",
   spsr: "SPSR",
-  voromesh: "VoroMesh",
   ponq: "PoNQ",
+  igr: "IGR",
   siren: "Siren",
+  voromesh: "VoroMesh",
   ours_init: "Ours init",
   ours: "Ours",
   gt: "GT",
@@ -148,7 +153,10 @@ function GLTFModel({ tag, category, modelName, rotation }) {
   useEffect(() => {
     gltf.scene.traverse((child) => {
       if (child.isMesh) {
-        child.material.color = new THREE.Color().setRGB(0.184, 0.412, 0.592);
+        if (!child.geometry.attributes.normal) {
+          child.geometry.computeVertexNormals();
+        }
+        child.material = new THREE.MeshNormalMaterial({ flatShading: true });
       }
     });
   }, [gltf]);
@@ -188,8 +196,10 @@ function ModelView({ tag, category, modelName, rotation }) {
           {tag == "ours"
             ? floatsCount[modelName]
             : category == "roof"
-              ? floatsCount2[tag]
-              : floatsCount3[tag]}{" "}
+              ? floatsCountRoof[tag]
+              : category == "general"
+                ? floatsCountGeneral[tag]
+                : floatsCountShapenet[tag]}{" "}
           FPs
         </p>
       )}

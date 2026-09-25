@@ -58,6 +58,7 @@ export function ShaderPlane({
     void main() {
       // Normalized coordinate system
       vec3 uv = vec3(2.0 * iScale * (gl_FragCoord.xy / iResolution.xy - 0.5), 1.0);
+      uv = vec3(uv.x, -uv.y, uv.z);
       vec4 lightColor = vec4(0.50980, 0.73333, 0.89020, 1.0);
       vec4 darkColor = vec4(0.0, 0.18039, 0.29804, 1.0);
       vec4 lineColor = vec4(0.90196, 0.90196, 0.90196, 1.0);
@@ -143,20 +144,16 @@ export function ShaderPlane({
       if (iSoftmax) {
         sdf_max += (log(val_acc_pos) - log(val_acc_neg)) / iBeta;
       }
-      shadertoy_out_color = (sdf_max > 0.0) ? lightColor : darkColor;
+      shadertoy_out_color = (sdf_max > 0.0) ? darkColor: lightColor;
 
       if (iCandidate) {
         float line_scale = length(iCoeffs[idx_max].xy - iCoeffs[idx_second].xy);
         if (abs(max_val - second_max_val) / line_scale < iEps * 0.06) {
-          shadertoy_out_color = lineColor;
-        }
-      }
-
-      // Activate segment
-      if (has_pos && has_neg) {
-        float sdf_scale = length(iCoeffs[idx_pos].xy - iCoeffs[idx_neg].xy);
-        if ((abs(sdf_max) / sdf_scale) < iEps * 0.06) {
-          shadertoy_out_color = activateColor;
+          if ((iCoeffs[idx_max].w * iCoeffs[idx_second].w) < 0.0) {
+            shadertoy_out_color = activateColor;
+          } else {
+            shadertoy_out_color = lineColor;
+          }
         }
       }
     }
