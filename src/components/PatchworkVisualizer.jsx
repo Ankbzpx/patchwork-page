@@ -143,15 +143,13 @@ export default function PatchworkVisualizer() {
     [-0.7238001, -0.21422054, 0.5507726, -0.99999964],
   ];
 
-  const [coeffs, setCoeffs] = useState([]);
-  const [cstatus, setCstatus] = useState([]);
-  const coeffsArray = useRef(
-    new Float32Array(
-      Array.from({ length: MAX_NUM_LINES }, () =>
-        Array.from({ length: 4 }, () => 0),
-      ).flat(),
-    ),
-  );
+  const [coeffs, setCoeffs] = useState(amongUsCoeffs);
+  const [cstatus, setCstatus] = useState(() => amongUsCoeffs.map(() => true));
+  const coeffsArray = useRef(null);
+  if (coeffsArray.current === null) {
+    coeffsArray.current = new Float32Array(MAX_NUM_LINES * 4);
+    coeffsArray.current.set(amongUsCoeffs.flat());
+  }
   const cstatusArray = useRef(
     new Float32Array(
       Array.from({ length: MAX_NUM_LINES }, () =>
@@ -257,23 +255,11 @@ export default function PatchworkVisualizer() {
   const [eps, setEps] = useState(0.1);
 
   useEffect(() => {
-    const status = [];
-    for (let index = 0; index < amongUsCoeffs.length; index++) {
-      coeffsArray.current[index * 4] = amongUsCoeffs[index][0];
-      coeffsArray.current[index * 4 + 1] = amongUsCoeffs[index][1];
-      coeffsArray.current[index * 4 + 2] = amongUsCoeffs[index][2];
-      coeffsArray.current[index * 4 + 3] = amongUsCoeffs[index][3];
-      cstatusArray.current[index * 2] = true;
-      status.push(true);
-    }
-    setCstatus(status);
-    setCoeffs(amongUsCoeffs);
-
     const canvas = appRef.current.getCanvas();
     const rect = canvas.getBoundingClientRect();
     const absoluteX = rect.left + window.scrollX;
     const absoluteY = rect.top + window.scrollY;
-    setEditorPos(absoluteX, absoluteY);
+    setEditorPos({ x: absoluteX, y: absoluteY });
   }, []);
 
   return (
