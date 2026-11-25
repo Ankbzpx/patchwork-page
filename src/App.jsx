@@ -118,7 +118,7 @@ function App() {
           Patchwork further supports explicit polygonalization and conforming
           volume mesh extraction, making it a versatile, scalable, yet compact
           representation for downstream tasks, with potential for geometric
-          learning. Our implementation is available at: https://github.com/Ankbzpx/patchwork-experiment.
+          learning.
         </p>
       </div>
       <Stack
