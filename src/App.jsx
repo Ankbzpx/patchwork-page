@@ -84,16 +84,16 @@ function App() {
           explicitly encodes 3D shapes as unions of polyhedra while admitting a
           simple closed-form zero-level-set equation. It is grounded in a
           rigorous mathematical framework that yields provable complexity bounds
-          and guarantees approximation of arbitrary shapes to arbitrary
+          and guarantees approximation of arbitrary closed surfaces to arbitrary
           precision. To fit patchwork to a given shape, we pair conventional
           gradient-based optimization with a novel combinatorial matching
           scheme. Experiments show that our approach achieves superior quality
-          with only 17–34\% as many parameters as existing alternatives on
-          average, and scales to highly detailed artist-created assets.
+          with 3-6x fewer parameters compared to existing alternatives
+          on average, and scales to highly detailed artist-created assets.
           Patchwork further supports explicit polygonalization and conforming
           volume mesh extraction, making it a versatile, scalable, yet compact
           representation for downstream tasks, with potential for geometric
-          learning.
+          learning. Our implementation is available at: https://github.com/Ankbzpx/patchwork-experiment.
         </p>
       </div>
       <Stack
@@ -108,7 +108,12 @@ function App() {
           sx={{ height: "600px", width: "auto", display: "block" }}
         />
         <Box sx={{ height: "600px", width: "auto", display: "block" }}>
-          <Magnifier src={"./images/normal.jpg"} zoomImgSrc={"./images/color.jpg"} zoomFactor = {2} height={"600px"} />
+          <Magnifier
+            src={"./images/normal.jpg"}
+            zoomImgSrc={"./images/color.jpg"}
+            zoomFactor={2}
+            height={"600px"}
+          />
         </Box>
       </Stack>
       <span style={{ height: "50px", display: "inline-block" }}></span>
@@ -185,6 +190,11 @@ function App() {
         category={"shapenet"}
         rotation={[0, 0, 0]}
       />
+      <span style={{ height: "100px", display: "inline-block" }}></span>
+      <h1 className="mid">Applications</h1>
+      <video width="640" controls muted autoPlay loop>
+        <source src="./videos/coral_fracture.mp4" type="video/mp4" />
+      </video>
     </>
   );
 }
