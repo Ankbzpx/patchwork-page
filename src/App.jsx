@@ -76,7 +76,32 @@ function App() {
         Patchwork: A Polyhedral Implicit Representation <br></br>for Highly
         Detailed 3D Shapes
       </h1>
-      <p>Anonymous authors</p>
+      <a>Ruichen Zheng</a>
+      {", "}
+      <a href="http://1zb.github.io">Biao Zhang</a>
+      {", "}
+      <a>Michael Birsak</a>
+      {", "}
+      <a href="https://users.mccme.ru/mskopenkov/">Mikhail Skopenkov</a>
+      {", "}
+      <a href="http://peterwonka.net">Peter Wonka</a>
+      <br />
+      King Abdullah University of Science and Technology
+      <div class="vspacer">
+        <span class="link-block">
+          <a href="https://github.com/Ankbzpx/patchwork-experiment/blob/main/preprint/preprint.pdf">
+            <FontAwesomeIcon icon={faFilePdf} />
+            <span>Preprint</span>
+          </a>
+        </span>
+        <span style={{ width: "10px", display: "inline-block" }}></span>
+        <span>
+          <a href="https://github.com/Ankbzpx/patchwork-experiment">
+            <FontAwesomeIcon icon={faFileCode} />
+            <span>Code</span>
+          </a>
+        </span>
+      </div>
       <h1 className="mid">Abstract</h1>
       <div className="abstract">
         <p>

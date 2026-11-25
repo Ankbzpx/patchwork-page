@@ -73,6 +73,7 @@ const floatsCountRoof = {
   igr: 8641,
   siren: 8641,
   voromesh: 8232,
+  dccvt: 8232,
   ours_init: 8192,
 };
 
@@ -84,6 +85,7 @@ const floatsCountGeneral = {
   igr: 132094,
   siren: 132865,
   voromesh: 128625,
+  dccvt: 128625,
   ours_init: 131072,
 };
 
@@ -95,6 +97,7 @@ const floatsCountShapenet = {
   igr: 526334,
   siren: 527873,
   voromesh: 526848,
+  dccvt: 526848,
   ours_init: 524288,
 };
 
@@ -106,6 +109,7 @@ const tags = [
   "igr",
   "siren",
   "voromesh",
+  "dccvt",
   "ours_init",
   "ours",
   "gt",
@@ -119,6 +123,7 @@ const tagMap = {
   igr: "IGR",
   siren: "Siren",
   voromesh: "VoroMesh",
+  dccvt: "DCCVT",
   ours_init: "Ours init",
   ours: "Ours",
   gt: "GT",
